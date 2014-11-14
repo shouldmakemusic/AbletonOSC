@@ -29,8 +29,18 @@ __init__.py
 
 import Live
 import LiveOSCCallbacks
-import RemixNet
-import OSC
+
+# RemixNet
+from OSCClient import OSCClient
+from OSCServer import OSCServer
+from UDPClient import UDPClient
+from UDPServer import UDPServer
+
+# OSC
+import OSCMessage
+import CallbackManager
+from OSCUtils import *
+
 import LiveUtils
 from Logger import Logger
 
@@ -53,7 +63,7 @@ class LiveOSC:
         self._LiveOSC__c_instance = c_instance
       
         self.basicAPI = 0       
-        self.oscServer = RemixNet.OSCServer('localhost')
+        self.oscServer = OSCServer('localhost')
         self.oscServer.sendOSC('/remix/oscserver/startup', 1)
         
         self.logger = self._LOG and Logger() or 0

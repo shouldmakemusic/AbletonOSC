@@ -22,9 +22,14 @@ This file contains all the current Live OSC callbacks.
 
 """
 import Live
-import RemixNet
 import OSC
 import LiveUtils
+# RemixNet
+import OSCClient
+import OSCServer
+import UDPClient
+import UDPServer
+
 
 class LiveOSCCallbacks:
     def __init__(self, oscServer):
