@@ -1,6 +1,7 @@
 import SocketServer
 import time
 
+''' So this could create a local server where the Logger connects to... '''
 class LoggerRequestHandler(SocketServer.BaseRequestHandler):
     def setup(self):
         print self.client_address, 'connected!'

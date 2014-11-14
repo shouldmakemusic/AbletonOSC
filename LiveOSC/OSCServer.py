@@ -136,6 +136,7 @@ class OSCServer:
         self.callbackManager.add(self.callbackEcho, '/remix/time')
         self.udpServer.setCallbackManager(self.callbackManager)
         self.udpServer.bind()
+        print('OSCServer - init done')
  
     #Should this method go here?
     #def attachToCurrentSongTime(self):
@@ -147,6 +148,7 @@ class OSCServer:
         Useful for verifying functionality.
         """
         
+        print('Received echo')
         self.oscClient.send('/remix/echo', msg[2])
         
     def callbackTime(self, msg=None):

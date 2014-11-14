@@ -37,6 +37,8 @@ import UDPServer
 
 class LiveOSCCallbacks:
     def __init__(self, oscServer):
+        
+        print('(LiveOSCCallbacks) init')
         if oscServer:
             self.oscServer = oscServer
             self.callbackManager = oscServer.callbackManager

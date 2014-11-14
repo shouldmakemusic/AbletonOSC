@@ -26,13 +26,7 @@ class Logger:
                 self.socket.connect(("localhost", 4444))
                 self.connected = 1
             except:
-                print "Couldn't connect socket"
-                
-
-        self.errorLog = open("C:\\stderr.txt", "w")
-        self.errorLog.write("Starting Error Log")
-        sys.stderr = self
-                
+                print "Couldn't connect socket"                
 
     def log(self,msg):
         if self.connected:

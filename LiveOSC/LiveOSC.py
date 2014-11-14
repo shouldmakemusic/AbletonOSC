@@ -49,7 +49,7 @@ class LiveOSC:
     __doc__ = "Main class that establishes the LiveOSC Component"
     
     # Enable Logging
-    _LOG = 0
+    _LOG = 1
     
     clisten = {}
     slisten = {}
@@ -62,12 +62,12 @@ class LiveOSC:
     def __init__(self, c_instance):
         self._LiveOSC__c_instance = c_instance
       
+        self.logger = self._LOG and Logger() or 0
+        self.log("LiveOSD - Logging Enabled")
+        
         self.basicAPI = 0       
         self.oscServer = OSCServer('localhost')
         self.oscServer.sendOSC('/remix/oscserver/startup', 1)
-        
-        self.logger = self._LOG and Logger() or 0
-        self.log("Logging Enabled")
         
         # Visible tracks listener
         if self.song().visible_tracks_has_listener(self.refresh_state) != 1:
@@ -82,6 +82,7 @@ class LiveOSC:
         You can connect yourself to other running scripts here, as we do it
         connect the extension modules
         """
+        print('(LiveOSC) connect_script_instances')
         return
 
     def is_extension(self):
@@ -96,6 +97,7 @@ class LiveOSC:
         your build_midi_map function. For performance reasons this is only
         called once per GUI frame.
         """
+        print('(LiveOSC) request_rebuild_midi_map')
         return
     
     def update_display(self):
@@ -104,6 +106,7 @@ class LiveOSC:
         listener to allow us to process incoming OSC commands as quickly as possible under
         the current listener scheme.
         """
+        #print('(LiveOSC) update_display')
         ######################################################
         # START OSC LISTENER SETUP
               
