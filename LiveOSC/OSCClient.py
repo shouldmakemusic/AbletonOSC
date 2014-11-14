@@ -69,7 +69,10 @@ else:
             sys.path.append("/usr/lib/python2.5")
             import socket
 
-import OSC
+# OSC
+from OSCMessage import OSCMessage
+from CallbackManager import CallbackManager
+from OSCUtils import *
       
 class OSCClient:
     """
@@ -145,7 +148,7 @@ class OSCClient:
                 return
             address = self.address
 
-        oscMessage = OSC.OSCMessage()
+        oscMessage = OSCMessage()
         oscMessage.setAddress(address)
 
         # We need to check for msgs that are actually

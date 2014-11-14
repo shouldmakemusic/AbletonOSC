@@ -69,7 +69,10 @@ else:
             sys.path.append("/usr/lib/python2.5")
             import socket
 
-import OSC
+# OSC
+from OSCMessage import OSCMessage
+from CallbackManager import CallbackManager
+from OSCUtils import *
     
 class UDPServer:
 

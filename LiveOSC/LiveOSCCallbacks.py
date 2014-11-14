@@ -22,7 +22,11 @@ This file contains all the current Live OSC callbacks.
 
 """
 import Live
-import OSC
+# OSC
+from OSCMessage import OSCMessage
+from CallbackManager import CallbackManager
+from OSCUtils import *
+
 import LiveUtils
 # RemixNet
 import OSCClient
